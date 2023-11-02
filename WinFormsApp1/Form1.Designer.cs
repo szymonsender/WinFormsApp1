@@ -31,7 +31,6 @@
             checkBox1 = new CheckBox();
             textBox1 = new TextBox();
             numericUpDown1 = new NumericUpDown();
-            btnGeneruj = new Button();
             bubble = new Button();
             selection = new Button();
             insert = new Button();
@@ -66,16 +65,6 @@
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(120, 23);
             numericUpDown1.TabIndex = 2;
-            // 
-            // btnGeneruj
-            // 
-            btnGeneruj.Location = new Point(232, 41);
-            btnGeneruj.Name = "btnGeneruj";
-            btnGeneruj.Size = new Size(75, 23);
-            btnGeneruj.TabIndex = 3;
-            btnGeneruj.Text = "Generuj";
-            btnGeneruj.UseVisualStyleBackColor = true;
-            btnGeneruj.Click += btnGeneruj_Click;
             // 
             // bubble
             // 
@@ -165,7 +154,6 @@
             Controls.Add(insert);
             Controls.Add(selection);
             Controls.Add(bubble);
-            Controls.Add(btnGeneruj);
             Controls.Add(numericUpDown1);
             Controls.Add(textBox1);
             Controls.Add(checkBox1);
@@ -182,7 +170,6 @@
         private CheckBox checkBox1;
         private TextBox textBox1;
         private NumericUpDown numericUpDown1;
-        private Button btnGeneruj;
         private Button bubble;
         private Button selection;
         private Button insert;

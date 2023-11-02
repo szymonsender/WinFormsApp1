@@ -32,8 +32,14 @@ namespace WinFormsApp1
         private void button4_Click(object sender, EventArgs e)
         {
             int[] numbers = GetNumbersFromTextBoxOrGenerated();
+            double startTime = getTime();
             numbers = InsertionSort(numbers);
-            textBox2.Text = string.Join(" ", numbers);
+            textBox3.Text = string.Join(" ", numbers);
+
+            double endTime = getTime();
+            double elapsedTime = (endTime - startTime) / 1000.0;
+
+            textBox2.Text = $"\n{elapsedTime}";
 
         }
 
@@ -42,21 +48,6 @@ namespace WinFormsApp1
 
         }
 
-        private void btnGeneruj_Click(object sender, EventArgs e)
-        {
-            int[] numbers;
-
-            if (checkBox1.Checked)
-            {
-                int count = (int)numericUpDown1.Value;
-                numbers = GenerateRandomNumbers(count);
-            }
-            else
-            {
-                numbers = Convert(textBox1.Text);
-            }
-
-        }
         int[] Convert(string napis)
         {
             var liczbyS = napis.Trim().Split(' ');
@@ -96,7 +87,7 @@ namespace WinFormsApp1
             double endTime = getTime();
             double elapsedTime = (endTime - startTime) / 1000.0;
 
-            textBox2.Text = $"\nCzas sortowania: {elapsedTime} sekund";
+            textBox2.Text = $"\n{elapsedTime}";
 
         }
 
@@ -199,15 +190,29 @@ namespace WinFormsApp1
         private void selection_Click(object sender, EventArgs e)
         {
             int[] numbers = GetNumbersFromTextBoxOrGenerated();
+            double startTime = getTime();
             numbers = SelectionSort(numbers);
-            textBox2.Text = string.Join(" ", numbers);
+            textBox3.Text = string.Join(" ", numbers);
+
+            double endTime = getTime();
+            double elapsedTime = (endTime - startTime) / 1000.0;
+
+            textBox2.Text = $"\n{elapsedTime}";
         }
 
         private void quick_Click(object sender, EventArgs e)
         {
             int[] numbers = GetNumbersFromTextBoxOrGenerated();
+            double startTime = getTime();
             QuickSort(numbers, 0, numbers.Length - 1);
-            textBox2.Text = string.Join(" ", numbers);
+
+
+            textBox3.Text = string.Join(" ", numbers);
+
+            double endTime = getTime();
+            double elapsedTime = (endTime - startTime) / 1000.0;
+
+            textBox2.Text = $"\n{elapsedTime}";
         }
 
 
@@ -224,7 +229,70 @@ namespace WinFormsApp1
 
         private void merge_Click(object sender, EventArgs e)
         {
+            int[] numbers = GetNumbersFromTextBoxOrGenerated();
 
+            double startTime = getTime();
+
+            numbers = MergeSort(numbers);
+
+            textBox3.Text = string.Join(" ", numbers);
+
+            double endTime = getTime();
+            double elapsedTime = (endTime - startTime) / 1000.0;
+
+            textBox2.Text = $"\n{elapsedTime}";
         }
+
+
+
+        public static int[] MergeSort(int[] array)
+        {
+            if (array.Length <= 1)
+                return array;
+
+            int middleIndex = array.Length / 2;
+            int[] leftArray = array.Take(middleIndex).ToArray();
+            int[] rightArray = array.Skip(middleIndex).ToArray();
+
+            return Merge(MergeSort(leftArray), MergeSort(rightArray));
+        }
+
+        private static int[] Merge(int[] left, int[] right)
+        {
+            List<int> result = new List<int>();
+            int leftIndex = 0, rightIndex = 0;
+
+            while (leftIndex < left.Length && rightIndex < right.Length)
+            {
+                if (left[leftIndex] < right[rightIndex])
+                {
+                    result.Add(left[leftIndex++]);
+                }
+                else
+                {
+                    result.Add(right[rightIndex++]);
+                }
+            }
+
+            while (leftIndex < left.Length)
+            {
+                result.Add(left[leftIndex++]);
+            }
+
+            while (rightIndex < right.Length)
+            {
+                result.Add(right[rightIndex++]);
+            }
+
+            return result.ToArray();
+        }
+
+
+
+
+
+
+
+
     }
 }
