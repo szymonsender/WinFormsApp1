@@ -106,7 +106,47 @@ namespace WinFormsApp1
             return arr;
         }
 
+        private int[] SelectionSort(int[] arr)
+        {
+            int length = arr.Length;
+            for (int i = 0; i < length - 1; i++)
+            {
+                int minIdx = i;
+                for (int j = i + 1; j < length; j++)
+                {
+                    if (arr[j] < arr[minIdx])
+                    {
+                        minIdx = j;
+                    }
+                }
+                int temp = arr[minIdx];
+                arr[minIdx] = arr[i];
+                arr[i] = temp;
+            }
+            return arr;
+        }
 
+
+        private int Partition(int[] arr, int low, int high)
+        {
+            int pivot = arr[high];
+            int i = (low - 1);
+            for (int j = low; j < high; j++)
+            {
+                if (arr[j] < pivot)
+                {
+                    i++;
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+            int swap = arr[i + 1];
+            arr[i + 1] = arr[high];
+            arr[high] = swap;
+
+            return i + 1;
+        }
 
 
 
