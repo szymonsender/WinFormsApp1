@@ -119,7 +119,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(171, 116);
+            label1.Location = new Point(143, 111);
             label1.Name = "label1";
             label1.Size = new Size(37, 15);
             label1.TabIndex = 9;
@@ -128,14 +128,14 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(214, 108);
+            textBox2.Location = new Point(193, 108);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
+            textBox2.Size = new Size(135, 23);
             textBox2.TabIndex = 11;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(48, 108);
+            textBox3.Location = new Point(12, 108);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(100, 23);
             textBox3.TabIndex = 12;
@@ -157,6 +157,8 @@
             Controls.Add(numericUpDown1);
             Controls.Add(textBox1);
             Controls.Add(checkBox1);
+            MaximumSize = new Size(356, 220);
+            MinimumSize = new Size(356, 220);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
