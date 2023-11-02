@@ -18,6 +18,9 @@ namespace WinFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
+            int[] numbers = GetNumbersFromTextBoxOrGenerated();
+            numbers = InsertionSort(numbers);
+            textBox2.Text = string.Join(" ", numbers);
 
         }
 
@@ -33,7 +36,7 @@ namespace WinFormsApp1
             if (checkBox1.Checked)
             {
                 int count = (int)numericUpDown1.Value;
-                numbers = GenerateRandomNumbers(count, 200);
+                numbers = GenerateRandomNumbers(count);
             }
             else
             {
@@ -53,20 +56,24 @@ namespace WinFormsApp1
             return liczby;
         }
 
-        private int[] GenerateRandomNumbers(int count, int maxVal)
+        private int[] GenerateRandomNumbers(int count)
         {
             Random rand = new Random();
             int[] numbers = new int[count];
+
             for (int i = 0; i < count; i++)
             {
-                numbers[i] = rand.Next(maxVal);
+                numbers[i] = rand.Next(0, 20);
             }
+
             return numbers;
         }
 
         private void sb_Click(object sender, EventArgs e)
         {
-
+            int[] numbers = Convert(textBox1.Text);
+            numbers = BubbleSort(numbers);
+            textBox2.Text = string.Join(" ", numbers);
         }
 
 
@@ -148,20 +155,52 @@ namespace WinFormsApp1
             return i + 1;
         }
 
+        private int[] GetNumbersFromTextBoxOrGenerated()
+        {
+            int[] numbers;
+
+            if (checkBox1.Checked)
+            {
+                int count = (int)numericUpDown1.Value;
+                numbers = GenerateRandomNumbers(count);
+            }
+            else
+            {
+                numbers = Convert(textBox1.Text);
+            }
+
+            return numbers;
+        }
+
+        private void selection_Click(object sender, EventArgs e)
+        {
+            int[] numbers = GetNumbersFromTextBoxOrGenerated();
+            numbers = SelectionSort(numbers);
+            textBox2.Text = string.Join(" ", numbers);
+        }
+
+        private void quick_Click(object sender, EventArgs e)
+        {
+            int[] numbers = GetNumbersFromTextBoxOrGenerated();
+            QuickSort(numbers, 0, numbers.Length - 1);
+            textBox2.Text = string.Join(" ", numbers);
+        }
 
 
 
+        private void QuickSort(int[] arr, int low, int high)
+        {
+            if (low < high)
+            {
+                int pi = Partition(arr, low, high);
+                QuickSort(arr, low, pi - 1);
+                QuickSort(arr, pi + 1, high);
+            }
+        }
 
+        private void merge_Click(object sender, EventArgs e)
+        {
 
-
-
-
-
-
-
-
-
-
-
+        }
     }
 }

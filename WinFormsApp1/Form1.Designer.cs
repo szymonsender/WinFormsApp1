@@ -35,7 +35,7 @@
             bubble = new Button();
             selection = new Button();
             insert = new Button();
-            merch = new Button();
+            merge = new Button();
             quick = new Button();
             label1 = new Label();
             label2 = new Label();
@@ -95,6 +95,7 @@
             selection.TabIndex = 5;
             selection.Text = "ss";
             selection.UseVisualStyleBackColor = true;
+            selection.Click += selection_Click;
             // 
             // insert
             // 
@@ -106,14 +107,15 @@
             insert.UseVisualStyleBackColor = true;
             insert.Click += button4_Click;
             // 
-            // merch
+            // merge
             // 
-            merch.Location = new Point(186, 146);
-            merch.Name = "merch";
-            merch.Size = new Size(40, 23);
-            merch.TabIndex = 7;
-            merch.Text = "sm";
-            merch.UseVisualStyleBackColor = true;
+            merge.Location = new Point(186, 146);
+            merge.Name = "merge";
+            merge.Size = new Size(40, 23);
+            merge.TabIndex = 7;
+            merge.Text = "sm";
+            merge.UseVisualStyleBackColor = true;
+            merge.Click += merge_Click;
             // 
             // quick
             // 
@@ -123,6 +125,7 @@
             quick.TabIndex = 8;
             quick.Text = "sq";
             quick.UseVisualStyleBackColor = true;
+            quick.Click += quick_Click;
             // 
             // label1
             // 
@@ -160,7 +163,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(quick);
-            Controls.Add(merch);
+            Controls.Add(merge);
             Controls.Add(insert);
             Controls.Add(selection);
             Controls.Add(bubble);
@@ -185,7 +188,7 @@
         private Button bubble;
         private Button selection;
         private Button insert;
-        private Button merch;
+        private Button merge;
         private Button quick;
         private Label label1;
         private Label label2;
