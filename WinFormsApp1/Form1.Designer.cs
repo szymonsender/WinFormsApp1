@@ -38,8 +38,8 @@
             merge = new Button();
             quick = new Button();
             label1 = new Label();
-            label2 = new Label();
             textBox2 = new TextBox();
+            textBox3 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
@@ -137,21 +137,19 @@
             label1.Text = "Czas: ";
             label1.Click += label1_Click;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(214, 116);
-            label2.Name = "label2";
-            label2.Size = new Size(111, 15);
-            label2.TabIndex = 10;
-            label2.Text = "*czas w sekundach*";
-            // 
             // textBox2
             // 
-            textBox2.Location = new Point(48, 108);
+            textBox2.Location = new Point(214, 108);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(100, 23);
             textBox2.TabIndex = 11;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(48, 108);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(100, 23);
+            textBox3.TabIndex = 12;
             // 
             // Form1
             // 
@@ -159,8 +157,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(340, 181);
+            Controls.Add(textBox3);
             Controls.Add(textBox2);
-            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(quick);
             Controls.Add(merge);
@@ -191,7 +189,7 @@
         private Button merge;
         private Button quick;
         private Label label1;
-        private Label label2;
         private TextBox textBox2;
+        private TextBox textBox3;
     }
 }

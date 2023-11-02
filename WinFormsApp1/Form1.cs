@@ -11,6 +11,19 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
+
+        private Stopwatch stopwatch = new Stopwatch();
+
+        private double getTime()
+        {
+            if (!stopwatch.IsRunning)
+            {
+                stopwatch.Start();
+            }
+
+            return stopwatch.Elapsed.TotalMilliseconds;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -71,9 +84,20 @@ namespace WinFormsApp1
 
         private void sb_Click(object sender, EventArgs e)
         {
-            int[] numbers = Convert(textBox1.Text);
+
+            int[] numbers = GetNumbersFromTextBoxOrGenerated();
+
+            double startTime = getTime();
+
             numbers = BubbleSort(numbers);
-            textBox2.Text = string.Join(" ", numbers);
+
+            textBox3.Text = string.Join(" ", numbers);
+
+            double endTime = getTime();
+            double elapsedTime = (endTime - startTime) / 1000.0;
+
+            textBox2.Text = $"\nCzas sortowania: {elapsedTime} sekund";
+
         }
 
 
